@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
+
+$font-family-sans-serif: 'IBM Plex Sans', sans-serif;
+
+$red: #7E1B27;
+$dark-gray: #2B2B2B;
+
+$primary: $red;
+
+$theme-colors: (
+  'red': $red,
+  'dark-gray': $dark-gray
+);

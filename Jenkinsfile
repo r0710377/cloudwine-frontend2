@@ -12,7 +12,7 @@ node(){
     }
     stage('Build') {
         nodejs('nodejs') {
-            sh 'ng build --prod --aot=false --build-optimizer=false'
+            sh 'npm run build --prod --aot=false --build-optimizer=false'
             echo "Build completed"
         }
         

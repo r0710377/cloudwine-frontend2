@@ -1,0 +1,5 @@
+<select class="form-control" name="organisation" id="organisation" [ngModel]="selectedWeatherstationId" (ngModelChange)="onChange($event)">
+  <option *ngFor="let weatherstation of weatherstations" [value]="weatherstation.id">
+    {{ weatherstation.name }}
+  </option>
+</select>

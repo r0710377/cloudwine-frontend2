@@ -19,7 +19,7 @@ node(){
     }
 
     stage('Package Build') {
-        sh "tar -zcvf bundle.tar.gz dist/automationdemo/"
+        sh "tar -zcvf bundle.tar.gz dist/cloudwine-frontend/"
     }
 
     stage('Artifacts Creation') {

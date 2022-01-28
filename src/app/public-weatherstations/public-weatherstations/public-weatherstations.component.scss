@@ -1,0 +1,33 @@
+@import "/src/variables";
+
+th, tr {
+  height: 2.5rem;
+}
+
+th, td {
+  padding: 0 0.5rem;
+}
+
+table th:last-child {
+  width: 20%;
+}
+
+.btn-text {
+  display: none;
+}
+.btn-icon {
+  display: inline;
+}
+
+th::before, th::after {
+  top: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .btn-text {
+    display: inline;
+  }
+  .btn-icon {
+    display: none;
+  }
+}

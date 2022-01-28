@@ -1,0 +1,25 @@
+#image {
+  min-height: 800px;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/wine-bg.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+.slogan {
+  padding-top: 40vh;
+}
+
+.lijn {
+  width: 20%;
+  height: 1px;
+}
+
+@media only screen and (min-width: 600px) {
+  .titel {
+    font-size: 65px;
+  }
+}

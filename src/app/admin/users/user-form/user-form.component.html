@@ -1,0 +1,91 @@
+<div class="container">
+  <h1 class="text-red titel">Gebruiker</h1>
+  <div class="alert alert-danger" role="alert" *ngIf="isSubmitted && errorMessage">
+    {{errorMessage}}
+  </div>
+
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+
+    <div class="form-group">
+      <label for="first_name">Voornaam:</label>
+      <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Voornaam"
+        [(ngModel)]="user.first_name" #first_name="ngModel" required>
+      <div [hidden]="first_name.valid || first_name.pristine" class="alert alert-danger">Voornaam is een verplicht veld.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="surname">Achternaam:</label>
+      <input type="text" class="form-control" id="surname" name="surname" placeholder="Achternaam"
+        [(ngModel)]="user.surname" #surname="ngModel" required>
+      <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger">Achternaam is een verplicht veld.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail:</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="E-mail" [(ngModel)]="user.email"
+        #email="ngModel" required>
+      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">E-mail is een verplicht veld.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="gsm">Gsm:</label>
+      <input type="text" class="form-control" id="gsm" name="gsm" placeholder="Gsm nummer" [(ngModel)]="user.gsm"
+        #gsm="ngModel" required>
+      <div [hidden]="gsm.valid || gsm.pristine" class="alert alert-danger">Gsm is een verplicht veld.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="organisation">Organisatie:</label>
+      <select class="form-control" name="organisation" id="organisation" [(ngModel)]="user.organisation_id"
+        #organisation_id="ngModel">
+        <option [ngValue]="null">Geen organisatie</option>
+        <option *ngFor="let organisation of organisations" [value]="organisation.id">
+          {{ organisation.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group d-inline">
+      <label class="d-inline">Actief:</label>
+      <label for="is_active" class="toggle-control d-inline">
+        <input type="checkbox" checked="checked" id="is_active" name="is_active" [(ngModel)]="user.is_active"
+          #is_active="ngModel">
+        <span class="control mt-1 ml-2"></span>
+      </label>
+    </div>
+
+    <div class="form-group d-inline ml-4">
+      <label class="d-inline">Admin:</label>
+      <label for="is_admin" class="toggle-control d-inline">
+        <input type="checkbox" checked="checked" id="is_admin" name="is_admin" [(ngModel)]="user.is_admin"
+          #is_admin="ngModel">
+        <span class="control mt-1 ml-2"></span>
+      </label>
+    </div>
+
+    <div class="form-group mb-0">
+      <label class="d-inline">Kan berichten sturen:</label>
+      <label for="can_message" class="toggle-control d-inline">
+        <input type="checkbox" checked="checked" id="can_message" name="can_message" [(ngModel)]="user.can_message"
+          #can_message="ngModel">
+        <span class="control mt-1 ml-2"></span>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label class="d-inline">Wilt meldingen ontvangen:</label>
+      <label for="can_receive_notifications" class="toggle-control d-inline">
+        <input type="checkbox" checked="checked" id="can_receive_notifications" name="can_receive_notifications"
+          [(ngModel)]="user.can_receive_notification" #can_receive_notification="ngModel">
+        <span class="control mt-1 ml-2"></span>
+      </label>
+    </div>
+
+    <div class="mb-4">
+      <button class="btn btn-outline-red rounded-pill" (click)="goBack()">Annuleren</button>
+      <button type="submit" class="btn btn-red rounded-pill ml-2"
+        [disabled]="!userForm.form.valid || isSubmitted">Opslaan</button>
+    </div>
+
+  </form>
+</div>

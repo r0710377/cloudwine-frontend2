@@ -1,0 +1,47 @@
+<div class="container">
+  <h1 class="text-red titel">Algemene instellingen alarm</h1>
+
+  <div class="alert alert-danger" role="alert" *ngIf="isSubmitted && errorMessage">
+    {{errorMessage}}
+  </div>
+
+  <form (ngSubmit)="onSubmit()" #weatherstationForm="ngForm">
+
+    <h3 class="text-red">Ontvangen data</h3>
+
+    <div class="form-group">
+      <label class="d-inline">Alarm geen data ontvangen:</label>
+      <label for="is_no_data_alarm" class="toggle-control d-inline">
+        <input type="checkbox" value="0" min="1" id="is_no_data_alarm" name="is_no_data_alarm"
+        [(ngModel)]="weatherstation.is_no_data_alarm" #is_no_data_alarm="ngModel">
+        <span class="control mt-1 ml-2"></span>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="number_of_cycles">Aantal cyclussen:</label>
+      <input type="text" class="form-control" id="number_of_cyclussen" name="number_of_cyclussen" placeholder="0"
+        required [(ngModel)]="weatherstation.number_of_cycles" #number_of_cycles="ngModel">
+      <div [hidden]="number_of_cycles.valid || number_of_cycles.pristine" class="alert alert-danger">Aantal cyclussen is een verplicht veld.</div>
+    </div>
+
+    <hr class="bg-red" />
+
+    <h3 class="text-red">Locatie</h3>
+
+    <div class="form-group">
+      <label class="d-inline">Alarm locatie:</label>
+      <label for="is_location_alarm" class="toggle-control d-inline">
+        <input type="checkbox" value="0" min="1" id="is_location_alarm" name="is_location_alarm"
+        [(ngModel)]="weatherstation.is_location_alarm" #is_location_alarm="ngModel">
+        <span class="control mt-1 ml-2"></span>
+      </label>
+    </div>
+
+    <div class="mb-4">
+      <button class="btn btn-outline-red rounded-pill" (click)="goBack()">Annuleren</button>
+      <button type="submit" class="btn btn-red rounded-pill ml-2"
+        [disabled]="!weatherstationForm.form.valid || isSubmitted">Opslaan</button>
+    </div>
+  </form>
+</div>

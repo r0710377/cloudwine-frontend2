@@ -1,0 +1,57 @@
+<div class="container">
+  <h1 class="text-red titel">Alarm toevoegen</h1>
+  <div class="alert alert-danger" role="alert" *ngIf="isSubmitted && errorMessage">
+    {{errorMessage}}
+  </div>
+
+  <p *ngIf="connected_to_relais.length > 0">
+    Uw weerstation is verbonden met de relais voor: {{ connected_to_relais }}
+  </p>
+
+  <form (ngSubmit)="onSubmit()" #weatherstationForm="ngForm">
+
+    <h3 class="text-red">Alarm sensor instellen</h3>
+
+    <div class="form-group">
+      <label for="graph_type_id">Sensor:</label>
+      <select class="form-control" name="graph_type_id" id="graph_type_id" [(ngModel)]="alarm.graph_type_id" #graph_type_id="ngModel">
+        <option *ngFor="let graphType of graphTypes" [value]="graphType.id">
+          {{ graphType.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="col">
+        <label for="operator">Operator:</label>
+        <select class="form-control" name="operator" id="operator" [(ngModel)]="alarm.operator" #operator="ngModel">
+          <option value="&lt;" selected>Kleiner dan</option>
+          <option value="&gt;">Groter dan</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <label for="switch_value">Waarde:</label>
+        <input type="text" class="form-control" id="switch_value" name="switch_value" placeholder="0" required
+          [(ngModel)]="alarm.switch_value" #switch_value="ngModel">
+        <div [hidden]="switch_value.valid || switch_value.pristine" class="alert alert-danger">Waarde is een verplicht
+          veld.</div>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label class="d-inline">Automatisch relais aansturen:</label>
+      <label for="is_relais" class="toggle-control d-inline">
+        <input type="checkbox" value="0" id="is_relais" name="is_relais" [(ngModel)]="alarm.is_relais"
+          #is_relais="ngModel">
+        <span class="control mt-1 ml-2"></span>
+      </label>
+    </div>
+
+    <div class="mb-4">
+      <button class="btn btn-outline-red rounded-pill" (click)="goBack()">Annuleren</button>
+      <button type="submit" class="btn btn-red rounded-pill ml-2"
+        [disabled]="!weatherstationForm.form.valid || isSubmitted">Opslaan</button>
+    </div>
+  </form>
+</div>

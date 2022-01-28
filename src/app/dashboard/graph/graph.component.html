@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-6 col-sm-3 mb-2 mb-sm-0">
+    <div class="box h-100 d-flex justify-content-center align-items-center">
+      <h3><i class="fas fa-battery-three-quarters fa-rotate-270"></i>
+        {{ batteryValue }} %
+      </h3>
+    </div>
+  </div>
+  <div class="col-6 col-sm-3 mb-2 mb-sm-0">
+    <div class="box h-100 d-flex justify-content-center align-items-center">
+      <h3><i class="fas fa-thermometer-three-quarters"></i>
+        {{ temperatureValue }} °C
+      </h3>
+    </div>
+  </div>
+  <div class="col-6 col-sm-3">
+    <div class="box h-100 d-flex justify-content-center align-items-center">
+      <h3><i class="fas fa-tint"></i>
+        {{ relativeHumidityValue }} %
+      </h3>
+    </div>
+  </div>
+  <div class="col-6 col-sm-3">
+    <div class="box h-100 d-flex justify-content-center align-items-center">
+      <h3><i class="fas fa-sun"></i>
+        {{ luxValue }} Lux
+      </h3>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-md-6">
+    <app-map [weatherstationId]="weatherstationId"></app-map>
+  </div>
+  <div class="col-12 col-md-6">
+    <apx-chart [series]="chart1Options.series" [chart]="chart1Options.chart" [xaxis]="chart1Options.xaxis"
+      [title]="chart1Options.title" [noData]="chart1Options.noData">
+    </apx-chart>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-md-6">
+    <apx-chart [series]="chart2Options.series" [chart]="chart2Options.chart" [xaxis]="chart2Options.xaxis"
+      [yaxis]="chart2Options.yaxis" [title]="chart2Options.title" [subtitle]="chart2Options.subtitle">
+    </apx-chart>
+  </div>
+  <div class="col-12 col-md-6">
+    <apx-chart [series]="chart3Options.series" [chart]="chart3Options.chart" [xaxis]="chart3Options.xaxis"
+      [title]="chart3Options.title" [subtitle]="chart3Options.subtitle" [stroke]="chart3Options.stroke">
+    </apx-chart>
+  </div>
+</div>

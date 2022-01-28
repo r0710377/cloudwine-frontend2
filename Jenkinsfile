@@ -1,8 +1,8 @@
 node(){
-    /*stage('Cloning Git') {
-   
-    }*/
-        
+    stage('Cloning Git') {
+        checkout scm
+    }
+  
     stage('Install dependencies') {
         nodejs('nodejs') {
             sh 'npm install'

@@ -1,0 +1,21 @@
+.titel {
+  margin-top: 60px;
+}
+
+::-webkit-file-upload-button {
+  background: transparent;
+  float: right;
+  color: #7b1e27;
+  border: 1px solid #7b1e27;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+::-webkit-file-upload-button:hover {
+  background: #7b1e27;
+  float: right;
+  color: white;
+  border: 1px solid #7b1e27;
+  border-radius: 16px;
+  cursor: pointer;
+}

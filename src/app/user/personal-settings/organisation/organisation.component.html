@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col mb-2">
+    <h3 class="text-red">Mijn organisatie</h3>
+  </div>
+  <a (click)="edit(organisation.id)" class="btn btn-transparent float-right"><i class="fas fa-edit text-red"></i></a>
+</div>
+<div *ngIf="organisation" class="mb-2 px-3">
+  <div class="row">
+    <div class="col-12 col-md-4 col-lg-6 font-weight-bold">
+      <p class="mb-1 mb-md-3">Naam:</p>
+    </div>
+    <div class="col-12 col-md-8 col-lg-6">
+      <p>{{ organisation.name }}</p>
+    </div>
+
+    <div class="col-12 col-md-4 col-lg-6 font-weight-bold">
+      <p class="mb-1 mb-md-3">Straat & nr.:</p>
+    </div>
+    <div class="col-12 col-md-8 col-lg-6">
+      <p>{{ organisation.address }}</p>
+    </div>
+
+    <div class="col-12 col-md-4 col-lg-6 font-weight-bold">
+      <p class="mb-1 mb-md-3">Postcode:</p>
+    </div>
+    <div class="col-12 col-md-8 col-lg-6">
+      <p>{{ organisation.postal_code }}</p>
+    </div>
+
+    <div class="col-12 col-md-4 col-lg-6 font-weight-bold">
+      <p class="mb-1 mb-md-3">Stad:</p>
+    </div>
+    <div class="col-12 col-md-8 col-lg-6">
+      <p>{{ organisation.city }}</p>
+    </div>
+
+    <div class="col-12 col-md-4 col-lg-6 font-weight-bold">
+      <p class="mb-1 mb-md-3">Land:</p>
+    </div>
+    <div class="col-12 col-md-8 col-lg-6">
+      <p>{{ organisation.country }}</p>
+    </div>
+  </div>
+</div>
+<div *ngIf="!organisation || isArray(organisation)" class="mb-2 px-3">
+  <p>U bent geen lid van een organisatie</p>
+</div>
